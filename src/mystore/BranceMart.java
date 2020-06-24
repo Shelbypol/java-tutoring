@@ -44,15 +44,33 @@ package mystore;
 // Create a Cashier
 // Pass the List to the Cashier's total method and System.out.println the result
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BranceMart {
     public static void main(String[] args) {
-
-
+        //data type is product
+        Product myApple = new Apple(true, "Macbook pro");
+        myApple.setPrice(456.78);
+        Product myWindows = new Windows("Winodws Vists", false, "Dell");
+        myWindows.setPrice(234.99);
 
         // DON'T LOOK HERE YET
-//        Product androidPhone = new Android(30.5, "123-456-7890", "Galaxy S50");
-//        androidPhone.setPrice(90.30);
-//        Product iphone = new Iphone(40, "234-567-8901", "iPhone11");
-//        iphone.setPrice(208.70);
+        Product androidPhone = new Android(30.5, "123-456-7890", "Galaxy S50");
+        androidPhone.setPrice(90.30);
+        Product iphone = new Iphone(40, "234-567-8901", "iPhone11");
+        iphone.setPrice(208.70);
+
+        List<Product> myCart = new ArrayList<>();
+        myCart.add(myApple);
+        myCart.add(myWindows);
+        myCart.add(androidPhone);
+        myCart.add(iphone);
+
+        Cashier shelby = new Cashier();
+        System.out.println("shelby.totalMyCart" + shelby.total(myCart));
+
+        Computer specificApple = new Apple(true, "different name");
+        System.out.println(specificApple.getOS());
     }
 }
